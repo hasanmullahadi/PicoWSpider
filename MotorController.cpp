@@ -56,40 +56,66 @@ void MotorController::wake() {
     digitalWrite(_stbyPin, HIGH);
 }
 
-// Soft start for Motor A
+// Non-blocking soft start for Motor A
 void MotorController::softStartA(uint8_t targetSpeed, uint8_t incrementDelay) {
-    for (uint8_t speed = 0; speed <= targetSpeed; speed += 5) {
-        motorAForward(speed);
-        delay(incrementDelay);
+    static unsigned long previousMillis = 0;
+    static uint8_t currentSpeed = 0;
+
+    unsigned long currentMillis = millis();
+    
+    if (currentSpeed < targetSpeed && (currentMillis - previousMillis >= incrementDelay)) {
+        previousMillis = currentMillis;
+        currentSpeed += 5;
+        motorAForward(currentSpeed);
     }
 }
 
-// Soft stop for Motor A
+// Non-blocking soft stop for Motor A
 void MotorController::softStopA(uint8_t decrementDelay) {
-    uint8_t currentSpeed = analogRead(_pwmaPin);
-    for (int speed = currentSpeed; speed >= 0; speed -= 5) {
-        motorAForward(speed);
-        delay(decrementDelay);
+    static unsigned long previousMillis = 0;
+    static uint8_t currentSpeed = analogRead(_pwmaPin);
+
+    unsigned long currentMillis = millis();
+
+    if (currentSpeed > 0 && (currentMillis - previousMillis >= decrementDelay)) {
+        previousMillis = currentMillis;
+        currentSpeed -= 5;
+        motorAForward(currentSpeed);
     }
-    motorAStop();
+    if (currentSpeed <= 0) {
+        motorAStop();
+    }
 }
 
-// Soft start for Motor B
+// Non-blocking soft start for Motor B
 void MotorController::softStartB(uint8_t targetSpeed, uint8_t incrementDelay) {
-    for (uint8_t speed = 0; speed <= targetSpeed; speed += 5) {
-        motorBForward(speed);
-        delay(incrementDelay);
+    static unsigned long previousMillis = 0;
+    static uint8_t currentSpeed = 0;
+
+    unsigned long currentMillis = millis();
+
+    if (currentSpeed < targetSpeed && (currentMillis - previousMillis >= incrementDelay)) {
+        previousMillis = currentMillis;
+        currentSpeed += 5;
+        motorBForward(currentSpeed);
     }
 }
 
-// Soft stop for Motor B
+// Non-blocking soft stop for Motor B
 void MotorController::softStopB(uint8_t decrementDelay) {
-    uint8_t currentSpeed = analogRead(_pwmbPin);
-    for (int speed = currentSpeed; speed >= 0; speed -= 5) {
-        motorBForward(speed);
-        delay(decrementDelay);
+    static unsigned long previousMillis = 0;
+    static uint8_t currentSpeed = analogRead(_pwmbPin);
+
+    unsigned long currentMillis = millis();
+
+    if (currentSpeed > 0 && (currentMillis - previousMillis >= decrementDelay)) {
+        previousMillis = currentMillis;
+        currentSpeed -= 5;
+        motorBForward(currentSpeed);
     }
-    motorBStop();
+    if (currentSpeed <= 0) {
+        motorBStop();
+    }
 }
 
 // Private method to control motors
