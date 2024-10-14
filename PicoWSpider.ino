@@ -8,9 +8,9 @@
 
 // Wi-Fi credentials
 
-const char *ssid = "YourWifi";     
-const char *password = "YourWifiPass";  
-RobotWebServer robotServer(ssid, password);
+const char *ssid = "PicoW";     
+const char *password = "12345678";  
+RobotWebServer robotServer(ssid, password,80,true);
 
 
 #include "MotorController.h"
@@ -167,12 +167,13 @@ void setup() {
 
   // Server Code
   // Connect to Wi-Fi
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
-    Serial.println("Connecting to WiFi...");
-  }
-  Serial.println("Connected to WiFi");
+  robotServer.begin();
+  // WiFi.begin(ssid, password);
+  // while (WiFi.status() != WL_CONNECTED) {
+  //   delay(1000);
+  //   Serial.println("Connecting to WiFi...");
+  // }
+  // Serial.println("Connected to WiFi");
 
   // Get IP address
   String ipAddress = WiFi.localIP().toString();
