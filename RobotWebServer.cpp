@@ -1,19 +1,36 @@
 #include "RobotWebServer.h"
 // //#include <SPIFFS.h>
 // #include <LittleFS.h>
-RobotWebServer::RobotWebServer(const char *ssid, const char *password, int port)
-  : server(port), ssid(ssid), password(password), moveForwardCallback(nullptr), moveBackwardCallback(nullptr), stopCallback(nullptr), spinCallback(nullptr) {
+
+RobotWebServer::RobotWebServer(const char *ssid, const char *password, int port, bool ap_mode)
+  : server(port), ssid(ssid), password(password), ap_mode(ap_mode),
+    moveForwardCallback(nullptr), moveBackwardCallback(nullptr), stopCallback(nullptr), spinCallback(nullptr) {
+}
+
+void RobotWebServer::setupAP() {
+  // Set up the Pico W as an Access Point
+  WiFi.softAP(ssid, password);
+  IPAddress IP = WiFi.softAPIP();
+  Serial.print("AP IP address: ");
+  Serial.println(IP);
+
+  Serial.print("AP started with SSID: ");
+  Serial.println(ssid);
 }
 
 void RobotWebServer::begin() {
   // Connect to Wi-Fi
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
-    Serial.println("Connecting to WiFi...");
-  }
-  Serial.println("Connected to WiFi");
 
+  if (ap_mode) {
+    setupAP();  // Set up the Pico W in Access Point mode
+  } else {
+    WiFi.begin(ssid, password);
+    while (WiFi.status() != WL_CONNECTED) {
+      delay(1000);
+      Serial.println("Connecting to WiFi...");
+    }
+    Serial.println("Connected to WiFi");
+  }
   // Define server routes
   server.on("/", std::bind(&RobotWebServer::handleRoot, this));
   server.on("/style.css", std::bind(&RobotWebServer::handleCSS, this));
@@ -135,7 +152,7 @@ void RobotWebServer::handleSetRGB() {
     uint8_t g = (colorValue >> 8) & 0xFF;
     uint8_t b = colorValue & 0xFF;
 
- 
+
 
 
     // Set the RGB value for the LED index

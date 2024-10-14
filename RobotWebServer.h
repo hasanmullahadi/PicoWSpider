@@ -11,7 +11,7 @@ class RobotWebServer
 {
 public:
   // Constructor
-  RobotWebServer(const char *ssid, const char *password, int port = 80);
+  RobotWebServer(const char *ssid="PicoW", const char *password="12345", int port = 80,bool ap_mode = false);
 
   // Start the server
   void begin();
@@ -52,6 +52,9 @@ private:
   WebServer server;     // Web server instance
   const char *ssid;     // Wi-Fi SSID
   const char *password; // Wi-Fi password
+
+  bool ap_mode;         // Flag to determine if the server is in AP mode
+
 
   int motorSpeed; // Motor speed value stored in the server
   float distance;
@@ -102,6 +105,9 @@ private:
 
   // Handle DHT data
   void handleGetDHT(); 
+
+  // Handle starting the server in AP mode
+    void setupAP();
 };
 
 #endif
