@@ -6,7 +6,7 @@
       <img alt="image" src="https://github.com/user-attachments/assets/fa304525-fae4-4676-a2ea-ab660e594d34" width="300px">
     </td>
     <td style="border: none; vertical-align: bottom;">
-       <strong style="font-size: 60px;">##PicoWRobotV1.2</strong>
+       <strong style="font-size: 60px;">PicoWRobotV1.2</strong>
     </td>
   </tr>
 </table>
