@@ -6,13 +6,26 @@
     <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXemcd4vDTq8Hjwg3V6bKfgeeLuLMgrJNAGf3GLNxYFSg7uJvSEoTQ2U1bqFoumz6fbXzz9tHiCLpYd_O4pfdmbt2zfkqe4_FfZxMleb3ccmiSnid4cDDK43GBqxSpizjvM3m90DOZDxgJ_EX1JUGElWSI2z?key=ThuSOE4uRiIPex4KaduNJA" alt="Description" width="300px">
 </div>PicoWRobotV1.2
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfe03cwEspBldTlexiHw53uC8QUrdolX6sIiqCb_kPqHjAdhbJhdQu3CtZ6GjdRKKKjDgnZ8UjvXaZmwDGsTdEaCYxd9ru1hYq7_WKFM_T5-akhQLqcpGPSnv7iUO_p0s81saA6jLmniQjg9py4FNCxkA4?key=ThuSOE4uRiIPex4KaduNJA)
+<div style="background-color: #f0f0f0; padding: 10px; display: inline-block;">
+    <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfe03cwEspBldTlexiHw53uC8QUrdolX6sIiqCb_kPqHjAdhbJhdQu3CtZ6GjdRKKKjDgnZ8UjvXaZmwDGsTdEaCYxd9ru1hYq7_WKFM_T5-akhQLqcpGPSnv7iUO_p0s81saA6jLmniQjg9py4FNCxkA4?key=ThuSOE4uRiIPex4KaduNJA" alt="Your Image" width="300px">
+</div>
+
 
 PicoW Robot V1.2 (Complete Kit)
 
 ### Robotics Prototyping Board for Raspberry Pi Pico W - 4 DC Drivers, Gyro, PWM, USB-C Powered
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXf2hVQUB4Pd9BXwYlzsnLqed0jwKOcTn5Rzu9bEeq0RxfFAhj44ziBIslq81qS9Gq88h43NvbqwhaOp8Qyf1RAeXnGWxMOv4VO-OZk-teTm8f1svh4cFMU0XQUAXcdK8qIa-r_LPTVdn-1gBADkBLIfxkRd?key=ThuSOE4uRiIPex4KaduNJA)![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfO9yRxLzCcNbbOWvt_zDyP8gFzUkto37-1W4vS0XieUKSk2jNB9VnIQviVdVhpBt521nRLrTv5lGwFZ6DBzYpa_vIg4l758kB3UrLDNcoy1bR7smaAUt7PLQMzI_y-iL0mfMDaJNZxHRVExTQ3aFGH4tAW?key=ThuSOE4uRiIPex4KaduNJA)
+<table>
+  <tr>
+    <td style="background-color: #f0f0f0; padding: 10px;">
+      <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf2hVQUB4Pd9BXwYlzsnLqed0jwKOcTn5Rzu9bEeq0RxfFAhj44ziBIslq81qS9Gq88h43NvbqwhaOp8Qyf1RAeXnGWxMOv4VO-OZk-teTm8f1svh4cFMU0XQUAXcdK8qIa-r_LPTVdn-1gBADkBLIfxkRd?key=ThuSOE4uRiIPex4KaduNJA" alt="Image 1" width="250px">
+    </td>
+    <td style="background-color: #f0f0f0; padding: 10px;">
+      <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfO9yRxLzCcNbbOWvt_zDyP8gFzUkto37-1W4vS0XieUKSk2jNB9VnIQviVdVhpBt521nRLrTv5lGwFZ6DBzYpa_vIg4l758kB3UrLDNcoy1bR7smaAUt7PLQMzI_y-iL0mfMDaJNZxHRVExTQ3aFGH4tAW?key=ThuSOE4uRiIPex4KaduNJA" alt="Image 2" width="250px">
+    </td>
+  </tr>
+</table>
+
 
 Unlock the full potential of your Raspberry Pi Pico W with this versatile prototyping board designed specifically for fast, efficient robotics development. Perfect for hobbyists, students, and engineers, this board comes preloaded with advanced features to support even the most ambitious robotics projects.
 
