@@ -3,7 +3,8 @@
 
 
 <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXemcd4vDTq8Hjwg3V6bKfgeeLuLMgrJNAGf3GLNxYFSg7uJvSEoTQ2U1bqFoumz6fbXzz9tHiCLpYd_O4pfdmbt2zfkqe4_FfZxMleb3ccmiSnid4cDDK43GBqxSpizjvM3m90DOZDxgJ_EX1JUGElWSI2z?key=ThuSOE4uRiIPex4KaduNJA" alt="Description" width="300px">
-<strong style="font-size: 24px; color: #5bc0de;">PicoWRobotV1.2</strong>
+**PicoWRobotV1.2**
+
 
 
 <div style="background-color: #f0f0f0; padding: 10px; display: inline-block;">
