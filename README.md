@@ -1,15 +1,16 @@
 
 
-<table>
+<table style="border-collapse: collapse;">
   <tr>
-    <td>
-      <img alt="image" src="https://github.com/user-attachments/assets/fa304525-fae4-4676-a2ea-ab660e594d34" alt="Description" width="300px">
+    <td style="border: none;">
+      <img alt="image" src="https://github.com/user-attachments/assets/fa304525-fae4-4676-a2ea-ab660e594d34" width="300px">
     </td>
-    <td>
-      <h1>PicoWRobotV1.2</h1>
+    <td style="border: none; vertical-align: bottom;">
+      <h1 style="margin: 0;">PicoWRobotV1.2</h1>
     </td>
   </tr>
 </table>
+
 
 
 
