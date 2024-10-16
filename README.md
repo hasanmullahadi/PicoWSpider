@@ -1,6 +1,5 @@
 
 
-**
 
 
 <div style="background-color: #f0f0f0; width: fit-content; display: inline-block; padding: 10px;">
