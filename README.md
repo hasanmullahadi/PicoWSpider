@@ -2,7 +2,10 @@
 
 **
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXemcd4vDTq8Hjwg3V6bKfgeeLuLMgrJNAGf3GLNxYFSg7uJvSEoTQ2U1bqFoumz6fbXzz9tHiCLpYd_O4pfdmbt2zfkqe4_FfZxMleb3ccmiSnid4cDDK43GBqxSpizjvM3m90DOZDxgJ_EX1JUGElWSI2z?key=ThuSOE4uRiIPex4KaduNJA)PicoWRobotV1.2
+
+<div style="background-color: #f0f0f0; width: fit-content; display: inline-block; padding: 10px;">
+    <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXemcd4vDTq8Hjwg3V6bKfgeeLuLMgrJNAGf3GLNxYFSg7uJvSEoTQ2U1bqFoumz6fbXzz9tHiCLpYd_O4pfdmbt2zfkqe4_FfZxMleb3ccmiSnid4cDDK43GBqxSpizjvM3m90DOZDxgJ_EX1JUGElWSI2z?key=ThuSOE4uRiIPex4KaduNJA" alt="Description" width="300px">
+</div>PicoWRobotV1.2
 
 ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfe03cwEspBldTlexiHw53uC8QUrdolX6sIiqCb_kPqHjAdhbJhdQu3CtZ6GjdRKKKjDgnZ8UjvXaZmwDGsTdEaCYxd9ru1hYq7_WKFM_T5-akhQLqcpGPSnv7iUO_p0s81saA6jLmniQjg9py4FNCxkA4?key=ThuSOE4uRiIPex4KaduNJA)
 
