@@ -8,43 +8,62 @@ PicoWSpider is an Arduino project for the **PicoWRobotV1.2** - a robotics protot
 
 ## Build & Upload
 
-This is an Arduino IDE project. Open `PicoWSpider.ino` in Arduino IDE.
+### Arduino IDE
+Open `PicoWSpider.ino` in Arduino IDE. Select Board: **Raspberry Pi Pico W**
 
-**Required Board**: Raspberry Pi Pico W (select in Arduino IDE: Tools > Board > Raspberry Pi Pico W)
+### Arduino CLI (command line)
+```bash
+# Install Pico W support (one-time)
+arduino-cli config add board_manager.additional_urls https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+arduino-cli core update-index
+arduino-cli core install rp2040:rp2040
 
-**Required Libraries** (install via Arduino Library Manager):
-- Adafruit GFX Library
-- Adafruit SSD1306
-- Adafruit MPU6050
-- Adafruit PWM Servo Driver Library
-- DHT sensor library
+# Install libraries (one-time)
+arduino-cli lib install "Adafruit GFX Library" "Adafruit SSD1306" "Adafruit MPU6050" "Adafruit PWM Servo Driver Library" "DHT sensor library"
+
+# Compile
+arduino-cli compile --fqbn rp2040:rp2040:rpipicow .
+
+# Upload (replace /dev/cu.usbmodem* with your port)
+arduino-cli upload --fqbn rp2040:rp2040:rpipicow -p /dev/cu.usbmodem* .
+```
+
+## Project Structure
+
+```
+PicoWSpider/
+├── PicoWSpider.ino      # Main sketch (setup, loop, motor functions)
+├── MotorController.*    # TB6612FNG dual motor driver
+├── ServoController.*    # PCA9685 PWM servo driver (I2C 0x60)
+├── DHTSensor.*          # DHT22 temperature/humidity
+├── Ultrasonic.*         # HC-SR04 distance sensor
+├── RobotWebServer.*     # WiFi AP web server
+├── html.*, css.*        # Embedded web interface
+└── docs/
+    ├── images/          # Pin diagrams and schematics
+    └── PicoWv1.stl      # 3D printable chassis
+```
 
 ## Architecture
 
-### Main Entry Point
-`PicoWSpider.ino` - Contains setup(), loop(), and motor movement functions (moveForward, moveBackward, spin, strafe, etc.)
+### Constants (PicoWSpider.ino)
+All configurable values are at the top: `MOTOR_SPEED_*`, `*_INTERVAL`, `OBSTACLE_DISTANCE_CM`, pin definitions.
 
-### Hardware Controllers (Header + Implementation pairs)
-- `MotorController.h/.cpp` - TB6612FNG dual motor driver control (supports 2 motors per instance, soft start/stop)
-- `ServoController.h/.cpp` - PCA9685 PWM servo driver via I2C (address 0x60)
-- `DHTSensor.h/.cpp` - DHT22 temperature/humidity sensor wrapper
-- `Ultrasonic.h/.cpp` - HC-SR04 ultrasonic distance sensor
+### Web Server Pattern
+RobotWebServer uses callbacks for motor control:
+```cpp
+robotServer.setMoveForwardCallback(moveForward);
+robotServer.setStopCallback(stopMotors);
+```
 
-### Web Server
-- `RobotWebServer.h/.cpp` - WiFi AP mode web server for remote control
-- `html.h/.cpp` - Web interface HTML (stored as raw string literal)
-- `css.h/.cpp` - Web interface CSS (stored as raw string literal)
-
-The web server uses callback pattern for motor control - set callbacks via `setMoveForwardCallback()`, etc.
-
-### Pin Assignments (defined in PicoWSpider.ino)
+### Pin Assignments
 - Motor AB: PWM(22,26), Control(0,1,3,6), Standby(2)
 - Motor CD: PWM(27,28), Control(7,8,10,11), Standby(9)
 - Ultrasonic: Trig(14), Echo(13)
 - DHT22: Pin 12
 - Buttons: 15,16,17,18
-- RGB LED: R(20), G(21), B(19) - common anode (inverted PWM)
-- I2C devices: OLED(0x3C), Servo Driver(0x60)
+- RGB LED: R(20), G(21), B(19) - common anode (inverted)
+- I2C: OLED(0x3C), Servo(0x60)
 
-### WiFi Configuration
-Default AP mode creates network "PicoW" with password "12345678". IP displayed on OLED after boot.
+### WiFi
+Default AP mode: SSID "PicoW", password "12345678". IP shown on OLED.
