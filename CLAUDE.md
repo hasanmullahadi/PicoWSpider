@@ -28,26 +28,43 @@ arduino-cli compile --fqbn rp2040:rp2040:rpipicow .
 arduino-cli upload --fqbn rp2040:rp2040:rpipicow -p /dev/cu.usbmodem* .
 ```
 
+### GitHub Actions
+CI automatically compiles on every push/PR to main. See `.github/workflows/build.yml`.
+
 ## Project Structure
 
 ```
 PicoWSpider/
-├── PicoWSpider.ino      # Main sketch (setup, loop, motor functions)
-├── MotorController.*    # TB6612FNG dual motor driver
-├── ServoController.*    # PCA9685 PWM servo driver (I2C 0x60)
-├── DHTSensor.*          # DHT22 temperature/humidity
-├── Ultrasonic.*         # HC-SR04 distance sensor
-├── RobotWebServer.*     # WiFi AP web server
-├── html.*, css.*        # Embedded web interface
-└── docs/
-    ├── images/          # Pin diagrams and schematics
-    └── PicoWv1.stl      # 3D printable chassis
+├── PicoWSpider.ino           # Main sketch (setup, loop, motor functions)
+├── src/
+│   ├── actuators/            # Motor and servo controllers
+│   │   ├── MotorController.* # TB6612FNG dual motor driver
+│   │   └── ServoController.* # PCA9685 PWM servo (I2C 0x60)
+│   ├── sensors/              # Sensor modules
+│   │   ├── DHTSensor.*       # DHT22 temperature/humidity
+│   │   └── Ultrasonic.*      # HC-SR04 distance sensor
+│   └── web/                  # Web server and UI
+│       ├── RobotWebServer.*  # WiFi AP web server
+│       ├── html.*            # Embedded HTML interface
+│       └── css.*             # Embedded CSS styles
+├── docs/
+│   ├── images/               # Pin diagrams and schematics
+│   └── PicoWv1.stl           # 3D printable chassis
+└── .github/workflows/        # CI configuration
 ```
 
 ## Architecture
 
+### Include Paths
+From main .ino file, use full paths:
+```cpp
+#include "src/web/RobotWebServer.h"
+#include "src/actuators/MotorController.h"
+#include "src/sensors/DHTSensor.h"
+```
+
 ### Constants (PicoWSpider.ino)
-All configurable values are at the top: `MOTOR_SPEED_*`, `*_INTERVAL`, `OBSTACLE_DISTANCE_CM`, pin definitions.
+All configurable values at the top: `MOTOR_SPEED_*`, `*_INTERVAL`, `OBSTACLE_DISTANCE_CM`, pin definitions.
 
 ### Web Server Pattern
 RobotWebServer uses callbacks for motor control:

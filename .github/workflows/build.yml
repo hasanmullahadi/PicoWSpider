@@ -1,0 +1,36 @@
+name: Build Arduino Sketch
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Arduino CLI
+        uses: arduino/setup-arduino-cli@v2
+
+      - name: Install Pico W board support
+        run: |
+          arduino-cli config init
+          arduino-cli config add board_manager.additional_urls https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+          arduino-cli core update-index
+          arduino-cli core install rp2040:rp2040
+
+      - name: Install required libraries
+        run: |
+          arduino-cli lib install "Adafruit GFX Library"
+          arduino-cli lib install "Adafruit SSD1306"
+          arduino-cli lib install "Adafruit MPU6050"
+          arduino-cli lib install "Adafruit PWM Servo Driver Library"
+          arduino-cli lib install "DHT sensor library"
+
+      - name: Compile sketch
+        run: arduino-cli compile --fqbn rp2040:rp2040:rpipicow .

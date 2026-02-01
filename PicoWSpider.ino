@@ -2,11 +2,11 @@
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_MPU6050.h>
 
-#include "RobotWebServer.h"
-#include "MotorController.h"
-#include "Ultrasonic.h"
-#include "ServoController.h"
-#include "DHTSensor.h"
+#include "src/web/RobotWebServer.h"
+#include "src/actuators/MotorController.h"
+#include "src/actuators/ServoController.h"
+#include "src/sensors/DHTSensor.h"
+#include "src/sensors/Ultrasonic.h"
 
 // ============================================================================
 // Configuration Constants
