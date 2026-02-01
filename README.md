@@ -27,33 +27,33 @@ Unlock the full potential of your Raspberry Pi Pico W with this versatile protot
 ## Pin Diagrams
 
 ### Motor Drivers (TB6612FNG)
-<img src="MotorDrivers.png" width="500">
+<img src="docs/images/MotorDrivers.png" width="500">
 
 ### Servo Connections (PCA9685)
 <p>
-  <img src="ServoPins.png" width="240">
-  <img src="ServoPins2.png" width="240">
-  <img src="ServoPin3.png" width="240">
-  <img src="ServoPins4.png" width="240">
+  <img src="docs/images/ServoPins.png" width="240">
+  <img src="docs/images/ServoPins2.png" width="240">
+  <img src="docs/images/ServoPin3.png" width="240">
+  <img src="docs/images/ServoPins4.png" width="240">
 </p>
 
 ### OLED Display
-<img src="OLED.png" width="300">
+<img src="docs/images/OLED.png" width="300">
 
 ### Ultrasonic Sensor (HC-SR04)
 <p>
-  <img src="ultrasonic.png" width="300">
-  <img src="ultrasonicSch.png" width="300">
+  <img src="docs/images/ultrasonic.png" width="300">
+  <img src="docs/images/ultrasonicSch.png" width="300">
 </p>
 
 ### Temperature & Humidity Sensor (DHT22)
 <p>
-  <img src="HTD.png" width="300">
-  <img src="HTDsch.png" width="300">
+  <img src="docs/images/HTD.png" width="300">
+  <img src="docs/images/HTDsch.png" width="300">
 </p>
 
 ### RGB LED & Switches
-<img src="RGBandSwitches.png" width="400">
+<img src="docs/images/RGBandSwitches.png" width="400">
 
 ## Dimensions
 
@@ -75,7 +75,7 @@ Unlock the full potential of your Raspberry Pi Pico W with this versatile protot
 | 5 | Mecanum Wheels | Omni-directional wheels with extensions and screws (2L, 2R) | 4 |
 | 6 | DHT22 | Temperature and humidity sensor | 1 |
 | 7 | OLED | 128x64 pixel display module | 1 |
-| 8 | 3D Printed Body | Chassis (STL file: `PicoWv1.stl`) | 1 |
+| 8 | 3D Printed Body | Chassis (STL file: `docs/PicoWv1.stl`) | 1 |
 | 9 | USB-C to USB Cable | For powering the board | 2 |
 | 10 | USB to Micro USB Cable | For programming the Pico W | 1 |
 | 11 | Zip Ties | For securing components and power bank | 5 |
@@ -108,7 +108,7 @@ The robot creates a WiFi access point on boot:
 
 ## 3D Model
 
-The chassis STL file (`PicoWv1.stl`) is included for 3D printing your own robot body.
+The chassis STL file (`docs/PicoWv1.stl`) is included for 3D printing your own robot body.
 
 ## Author
 
