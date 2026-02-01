@@ -51,15 +51,8 @@ const char* index_html = R"rawliteral(
         <label for="colorPicker">Select Color:</label>
         <input type="color" id="colorPicker" value="#ff0000" oninput="updateRGB()">
 
-        <!-- Index Selector -->
-        <label for="ledIndex">Select LED:</label>
-        <select id="ledIndex" onchange="updateRGB()">
-            <option value="0">LED 1</option>
-            <option value="1">LED 2</option>
-            <option value="2">LED 3</option>
-            <option value="3">LED 4</option>
-            <option value="4">LED 5</option>
-        </select>
+        <!-- LED index (hidden since we only have 1 LED) -->
+        <input type="hidden" id="ledIndex" value="0">
     </div>
 
     <!-- Section for Accelerometer and Gyroscope Display -->

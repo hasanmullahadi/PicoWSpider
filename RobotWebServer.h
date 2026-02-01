@@ -1,113 +1,88 @@
-#ifndef RobotWebServer_h
-#define RobotWebServer_h
+#ifndef ROBOTWEBSERVER_H
+#define ROBOTWEBSERVER_H
 
 #include <WiFi.h>
 #include <WebServer.h>
 #include "html.h"
 #include "css.h"
 
+static const int RGB_LED_COUNT = 1;
 
-class RobotWebServer
-{
+class RobotWebServer {
 public:
-  // Constructor
-  RobotWebServer(const char *ssid="PicoW", const char *password="12345", int port = 80,bool ap_mode = false);
+    RobotWebServer(const char *ssid = "PicoW",
+                   const char *password = "12345",
+                   int port = 80,
+                   bool ap_mode = false);
 
-  // Start the server
-  void begin();
+    void begin();
+    void handleClient();
 
-  // Handle incoming client requests
-  void handleClient();
+    // Motor control callbacks
+    void setMoveForwardCallback(void (*func)());
+    void setMoveBackwardCallback(void (*func)());
+    void setStopCallback(void (*func)());
+    void setSpinCallback(void (*func)());
 
-  // Set robot control callbacks
-  void setMoveForwardCallback(void (*func)());
-  void setMoveBackwardCallback(void (*func)());
-  void setStopCallback(void (*func)());
-  void setSpinCallback(void (*func)());
+    // Motor speed
+    void setMotorSpeed(int speed);
+    int getMotorSpeed();
 
-  // Set motor speed (setter and getter)
-  void setMotorSpeed(int speed); // Setter
-  int getMotorSpeed();           // Getter
+    // Distance sensor
+    float getDistance();
+    void setDistance(float dis);
 
-  // Get distance from sonar sensor
-  float getDistance();
-  void setDistance(float dis);
+    // RGB LED control
+    void setRGBValue(int index, uint8_t r, uint8_t g, uint8_t b);
+    void getRGBValue(int index, uint8_t &r, uint8_t &g, uint8_t &b);
 
-  // Set and get RGB values for a given LED index
-  void setRGBValue(int index, uint8_t r, uint8_t g, uint8_t b);
-  void getRGBValue(int index, uint8_t &r, uint8_t &g, uint8_t &b);
+    // IMU data
+    void setAcceleration(float x, float y, float z);
+    void getAcceleration(float &x, float &y, float &z);
+    void setGyroscope(float x, float y, float z);
+    void getGyroscope(float &x, float &y, float &z);
 
-  // Set and get acceleration values
-  void setAcceleration(float x, float y, float z);
-  void getAcceleration(float &x, float &y, float &z);
-
-  // Set and get gyroscope values
-  void setGyroscope(float x, float y, float z);
-  void getGyroscope(float &x, float &y, float &z);
-
-  void setDHTValues(float temperature, float humidity);
-  void getDHTValues(float &temperature, float &humidity);
+    // Environment sensor
+    void setDHTValues(float temperature, float humidity);
+    void getDHTValues(float &temperature, float &humidity);
 
 private:
-  WebServer server;     // Web server instance
-  const char *ssid;     // Wi-Fi SSID
-  const char *password; // Wi-Fi password
+    WebServer server;
+    const char *ssid;
+    const char *password;
+    bool ap_mode;
 
-  bool ap_mode;         // Flag to determine if the server is in AP mode
+    int motorSpeed;
+    float distance;
 
+    uint8_t rgbValues[RGB_LED_COUNT][3];
 
-  int motorSpeed; // Motor speed value stored in the server
-  float distance;
+    float accelX, accelY, accelZ;
+    float gyroX, gyroY, gyroZ;
+    float dhtTemperature, dhtHumidity;
 
-  // RGB values for each of the 5 LEDs
-  uint8_t rgbValues[1][3]; // Array to store RGB values for 5 LEDs [R, G, B]
+    void (*moveForwardCallback)();
+    void (*moveBackwardCallback)();
+    void (*stopCallback)();
+    void (*spinCallback)();
 
-  // Acceleration values
-  float accelX, accelY, accelZ;
-
-  // Gyroscope values
-  float gyroX, gyroY, gyroZ;
-
-  float dhtTemperature;
-    float dhtHumidity;
-
-
-  // Robot control function pointers
-  void (*moveForwardCallback)();
-  void (*moveBackwardCallback)();
-  void (*stopCallback)();
-  void (*spinCallback)();
-
-  // Route handlers for web requests
-  void handleRoot();         // Serves the HTML interface
-  void handleCSS();          // Serves the CSS file
-  void handleMoveForward();  // Moves the robot forward
-  void handleMoveBackward(); // Moves the robot backward
-  void handleStop();         // Stops the robot
-  void handleSpin();         // Spins the robot
-
-  // Handle motor speed setting and getting
-  void handleSetSpeed(); // Set the motor speed
-  void handleGetSpeed(); // Get the current motor speed
-
-  // New route to handle sonar distance
-  void handleGetDistance();
-
-  // Handle RGB control
-  void handleSetRGB(); // Set the RGB values for a given LED index
-  void handleGetRGB(); // Get the RGB values for a given LED index
-
-  // Handle acceleration data
-  void handleGetAcceleration(); // Get acceleration data for the graph
-
-  // Handle gyroscope data
-  void handleGetGyroscope(); // Get gyroscope data for the graph
-
-  // Handle DHT data
-  void handleGetDHT(); 
-
-  // Handle starting the server in AP mode
     void setupAP();
+
+    // Route handlers
+    void handleRoot();
+    void handleCSS();
+    void handleMoveForward();
+    void handleMoveBackward();
+    void handleStop();
+    void handleSpin();
+    void handleSetSpeed();
+    void handleGetSpeed();
+    void handleGetDistance();
+    void handleSetRGB();
+    void handleGetRGB();
+    void handleGetAcceleration();
+    void handleGetGyroscope();
+    void handleGetDHT();
 };
 
 #endif

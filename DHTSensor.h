@@ -6,16 +6,10 @@
 
 class DHTSensor {
 public:
-    // Constructor
     DHTSensor(uint8_t pin, uint8_t type);
 
-    // Initialize the sensor
     void begin();
-
-    // Read temperature in Celsius
     float readTemperature();
-
-    // Read humidity
     float readHumidity();
 
 private:

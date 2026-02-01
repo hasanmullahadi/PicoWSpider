@@ -1,26 +1,23 @@
 #include "ServoController.h"
 
-// Constructor
 ServoController::ServoController(uint8_t addr) : pwm(Adafruit_PWMServoDriver(addr)) {}
 
-// Initialize the PWM driver
 void ServoController::begin() {
     pwm.begin();
-    pwm.setPWMFreq(60);  // Analog servos run at ~60 Hz updates
+    pwm.setPWMFreq(SERVO_FREQ_HZ);
 }
 
-// Move servo to a specific angle
 void ServoController::moveServo(uint8_t servoNum, uint16_t angle) {
-    uint16_t pulseLength = map(angle, 0, 180, servoMin, servoMax);
+    uint16_t clampedAngle = constrain(angle, SERVO_ANGLE_MIN, SERVO_ANGLE_MAX);
+    uint16_t pulseLength = map(clampedAngle, SERVO_ANGLE_MIN, SERVO_ANGLE_MAX,
+                               SERVO_MIN_PULSE, SERVO_MAX_PULSE);
     pwm.setPWM(servoNum, 0, pulseLength);
 }
 
-// Move servo left
 void ServoController::moveLeft(uint8_t servoNum) {
-    moveServo(servoNum, 0);  // Move to 0 degrees
+    moveServo(servoNum, SERVO_ANGLE_MIN);
 }
 
-// Move servo right
 void ServoController::moveRight(uint8_t servoNum) {
-    moveServo(servoNum, 180);  // Move to 180 degrees
+    moveServo(servoNum, SERVO_ANGLE_MAX);
 }

@@ -3,15 +3,15 @@
 
 #include <Arduino.h>
 
+// Speed of sound: 343 m/s = 0.0343 cm/microsecond
+// Divide by 2 for round-trip measurement
+static const float SOUND_CM_PER_US = 0.0343;
+
 class Ultrasonic {
 public:
-    // Constructor
     Ultrasonic(uint8_t trigPin, uint8_t echoPin);
 
-    // Initialize the sensor
     void begin();
-
-    // Get distance in centimeters
     float getDistance();
 
 private:
