@@ -1,6 +1,6 @@
 # PicoWRobotV1.2
 
-![Robot](https://github.com/user-attachments/assets/fa304525-fae4-4676-a2ea-ab660e594d34)
+<img src="https://github.com/user-attachments/assets/fa304525-fae4-4676-a2ea-ab660e594d34" width="400">
 
 **Robotics Prototyping Board for Raspberry Pi Pico W**
 
@@ -27,27 +27,33 @@ Unlock the full potential of your Raspberry Pi Pico W with this versatile protot
 ## Pin Diagrams
 
 ### Motor Drivers (TB6612FNG)
-![Motor Drivers](MotorDrivers.png)
+<img src="MotorDrivers.png" width="500">
 
 ### Servo Connections (PCA9685)
-![Servo Pins](ServoPins.png)
-![Servo Pins 2](ServoPins2.png)
-![Servo Pins 3](ServoPin3.png)
-![Servo Pins 4](ServoPins4.png)
+<p>
+  <img src="ServoPins.png" width="240">
+  <img src="ServoPins2.png" width="240">
+  <img src="ServoPin3.png" width="240">
+  <img src="ServoPins4.png" width="240">
+</p>
 
 ### OLED Display
-![OLED](OLED.png)
+<img src="OLED.png" width="300">
 
 ### Ultrasonic Sensor (HC-SR04)
-![Ultrasonic](ultrasonic.png)
-![Ultrasonic Schematic](ultrasonicSch.png)
+<p>
+  <img src="ultrasonic.png" width="300">
+  <img src="ultrasonicSch.png" width="300">
+</p>
 
 ### Temperature & Humidity Sensor (DHT22)
-![HTD Sensor](HTD.png)
-![HTD Schematic](HTDsch.png)
+<p>
+  <img src="HTD.png" width="300">
+  <img src="HTDsch.png" width="300">
+</p>
 
 ### RGB LED & Switches
-![RGB and Switches](RGBandSwitches.png)
+<img src="RGBandSwitches.png" width="400">
 
 ## Dimensions
 
