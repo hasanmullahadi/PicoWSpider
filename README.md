@@ -112,10 +112,10 @@ The chassis STL file (`docs/PicoWv1.stl`) is included for 3D printing your own r
 
 ## Author
 
-**Hasan Ismail**
+**Hasan Ismail** · [@hasanmullahadi](https://github.com/hasanmullahadi)
 
 I'm a passionate hobbyist who loves creating and building projects, especially in robotics. My goal with this development board is to make it as fast and easy as possible for anyone to start coding and experimenting with robotics.
 
 Your feedback and suggestions are welcome for future versions!
 
-Contact: [eng.hasan.m@gmail.com](mailto:eng.hasan.m@gmail.com)
+**Contact:** [Open an issue](https://github.com/hasanmullahadi/PicoWSpider/issues) or reach out via GitHub
